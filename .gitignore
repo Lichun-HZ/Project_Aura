@@ -5,3 +5,13 @@
 /AuraGame/Saved
 /AuraGame/AuraGame.sln
 /AuraGame/.vsconfig
+.idea
+/AuraGame/Plugins/Developer/RiderLink/Binaries/Win64/*.dll
+*.exp
+*.pdb
+/AuraGame/Plugins/Developer/RiderLink/Source/RiderShaderInfo/RiderShaderInfo.h
+RiderShaderInfo.cpp
+Win64
+/AuraGame/Plugins/Developer/RiderLink/Intermediate
+/AuraGame/Plugins/Developer/RiderLink/Resources
+/AuraGame/Plugins/Developer/RiderLink
