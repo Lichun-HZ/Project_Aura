@@ -25,8 +25,10 @@ void AAuraPlayerController::BeginPlay()
 	UEnhancedInputLocalPlayerSubsystem* localPlayerSubsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
 	check(localPlayerSubsystem);
 
+	// 添加InputMappingContext
 	localPlayerSubsystem->AddMappingContext(AuroContext, 0);
 
+	// 显示鼠标位置，鼠标形状为默认
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Type::Default;
 
@@ -41,6 +43,7 @@ void AAuraPlayerController::SetupInputComponent()
 {
 	Super::SetupInputComponent();
 
+	// 绑定InputAction处理函数
 	UEnhancedInputComponent* EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(InputComponent);
 	EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AAuraPlayerController::Move);
 }
@@ -64,6 +67,7 @@ void AAuraPlayerController::Move(const FInputActionValue& InputValue)
 void AAuraPlayerController::CursorTrace()
 {
 	FHitResult CursorHit;
+	// 获取当前鼠标Hit结果
 	GetHitResultUnderCursor(ECC_Visibility, false, CursorHit);
 	if (!CursorHit.bBlockingHit)
 		return;
