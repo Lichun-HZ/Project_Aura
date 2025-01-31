@@ -23,10 +23,11 @@ void AAuraPlayerController::BeginPlay()
 	check(AuroContext);
 
 	UEnhancedInputLocalPlayerSubsystem* localPlayerSubsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	check(localPlayerSubsystem);
-
-	// 添加InputMappingContext
-	localPlayerSubsystem->AddMappingContext(AuroContext, 0);
+	if (localPlayerSubsystem != nullptr)
+	{
+		// 添加InputMappingContext
+		localPlayerSubsystem->AddMappingContext(AuroContext, 0);
+	}
 
 	// 显示鼠标位置，鼠标形状为默认
 	bShowMouseCursor = true;
