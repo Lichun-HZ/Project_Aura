@@ -52,6 +52,7 @@ void AAuraCharacter::InitAbilityActorInfo()
 
 	AbilitySystemComponent->InitAbilityActorInfo(AuraPlayerState, this);
 
+	// 初始化HUD的界面
 	if (AAuraPlayerController* AuraPlayerController = Cast<AAuraPlayerController>(GetController()))
 	{
 		if (AAuraHUD* AuraHUD = Cast<AAuraHUD>(AuraPlayerController->GetHUD()))
