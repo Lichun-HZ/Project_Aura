@@ -2,6 +2,8 @@
 
 
 #include "AbilitySystem/AuraAttributeSet.h"
+
+#include "GameplayEffectExtension.h"
 #include "Net/UnrealNetwork.h"
 
 UAuraAttributeSet::UAuraAttributeSet()
@@ -65,6 +67,16 @@ void UAuraAttributeSet::PreAttributeBaseChange(const FGameplayAttribute& Attribu
 	{
 		NewValue = FMath::Max(NewValue, 0.0f);
 	}		
+}
+
+void UAuraAttributeSet::PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data)
+{
+	Super::PostGameplayEffectExecute(Data);
+
+	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
+	{
+		
+	}
 }
 
 void UAuraAttributeSet::OnRep_Health(const FGameplayAttributeData& oldHealth) const

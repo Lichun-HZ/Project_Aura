@@ -32,7 +32,7 @@ void AAuraEffectActor::ApplyEffectToTarget(AActor* TargetActor, TSubclassOf<UGam
 		FGameplayEffectContextHandle EffectContextHandle = ASCTarget->MakeEffectContext();
 		EffectContextHandle.AddSourceObject(this);
 		
-		const FGameplayEffectSpecHandle EffectSpecHandle = ASCTarget->MakeOutgoingSpec(GameplayEffectClass, 1.f, EffectContextHandle);
+		const FGameplayEffectSpecHandle EffectSpecHandle = ASCTarget->MakeOutgoingSpec(GameplayEffectClass, Level, EffectContextHandle);
 		const FActiveGameplayEffectHandle ActiveEffectHandle = ASCTarget->ApplyGameplayEffectSpecToSelf(*EffectSpecHandle.Data);
 
 		const bool isInfinite = EffectSpecHandle.Data->Def->DurationPolicy == EGameplayEffectDurationType::Infinite;
